@@ -1,0 +1,11 @@
+version : '2'
+services:
+        dockerapp:
+                build: /apps/scripts
+                ports:
+                  - "5000:5000" #host port : container port
+                volumes:
+                  - ./app:/app #host volume:container volume (can be used to make changes on host volume and see change in container immediately. also remove this line "COPY app /app" from docker file since it's not required anymore.
+
+        redis:
+          image : redis:3.2.8
